@@ -25,7 +25,8 @@ find_package(Boost ${BOOST_VER} REQUIRED COMPONENTS system date_time random)
 aux_source_directory(${CMAKE_CURRENT_LIST_DIR}/src ALL_SRC)
 aux_source_directory(${CMAKE_CURRENT_LIST_DIR}/src/internal ALL_SRC)
 file(GLOB ALL_HEADERS ${CMAKE_CURRENT_LIST_DIR}/src/*.h )
-set(SIO_INCLUDEDIR ${CMAKE_CURRENT_LIST_DIR})
+set(SIO_INCLUDEDIR ${CMAKE_CURRENT_LIST_DIR} CACHE INTERNAL "")
+set(SIO_BUILDDIR ${CMAKE_BINARY_DIR} CACHE INTERNAL "")
 
 add_library(sioclient ${ALL_SRC})
 target_include_directories(sioclient PRIVATE ${Boost_INCLUDE_DIRS} 
