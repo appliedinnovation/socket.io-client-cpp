@@ -189,6 +189,10 @@ namespace sio
         friend class socket;
     };
     
+  bool socket::is_connected() const {
+    return m_impl->m_connected;
+  }
+
     void socket::impl::on(std::string const& event_name,event_listener_aux const& func)
     {
         this->on(event_name,event_adapter::do_adapt(func));

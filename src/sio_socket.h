@@ -73,6 +73,8 @@ namespace sio
         void emit(std::string const& name, message::list const& msglist = nullptr, std::function<void (message::list const&)> const& ack = nullptr);
         
         std::string const& get_namespace() const;
+
+	bool is_connected() const;
         
     protected:
         socket(client_impl*,std::string const&);
